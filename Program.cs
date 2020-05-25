@@ -16,43 +16,115 @@ namespace guessingGame
 
             //create a variable for the number of guess left
             int guessesLeft = 4;
-            
-            
-            List<string> difLevel = new List<string>() { "Easy", "Medium", "Hard" };
-           Console.WriteLine($"Select the Difficulty Level, {difLevel}");
 
-            while (guessesGiven < 4)
+            Console.WriteLine("Choose a difficulty level:");
+            Console.WriteLine("1) Easy");
+            Console.WriteLine("2) Medium");
+            Console.WriteLine("3) Hard");
+            Console.WriteLine("4) Exit");
+
+            switch (Console.ReadLine())
             {
-            
+                case "1":
+                    while (guessesGiven < 8)
+                    {
+                        Console.WriteLine($"Guess the secret number. Your Guess({guessesGiven + 1})");
+                        string userGuess = Console.ReadLine();
+                        int userGuessInt = Int32.Parse(userGuess);
 
-                Console.WriteLine($"Guess the secret number. Your Guess({guessesGiven + 1})");
-                string userGuess = Console.ReadLine();
-                int userGuessInt = Int32.Parse(userGuess);
+                        if (userGuessInt == secretNumber)
+                        {
+                            Console.WriteLine("Yup! you guessed it");
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Nope! that wasn't it!. You have ({guessesLeft - 1}) guesses left");
+                        }
 
-                if (userGuessInt == secretNumber)
-                {
-                    Console.WriteLine("Yup! you guessed it");
+                        if (userGuessInt < secretNumber)
+                        {
+                            Console.WriteLine("your guess is too low");
+                        }
+                        else
+                        {
+                            Console.WriteLine("your guess is too high");
+                        }
+
+                        guessesGiven++;
+                        guessesLeft--;
+
+                    }
+
                     break;
-                }
-                else
-                {
-                    Console.WriteLine($"Nope! that wasn't it!. You have ({guessesLeft - 1}) guesses left");
-                }
 
-                if (userGuessInt < secretNumber)
-                {
-                    Console.WriteLine("your guess is too low");
-                }
-                else
-                {
-                    Console.WriteLine("your guess is too high");
-                }
+                case "2":
+                    while (guessesGiven < 6)
+                    {
+                        Console.WriteLine($"Guess the secret number. Your Guess({guessesGiven + 1})");
+                        string userGuess = Console.ReadLine();
+                        int userGuessInt = Int32.Parse(userGuess);
 
-                guessesGiven++;
-                guessesLeft--;
+                        if (userGuessInt == secretNumber)
+                        {
+                            Console.WriteLine("Yup! you guessed it");
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Nope! that wasn't it!. You have ({guessesLeft - 1}) guesses left");
+                        }
+
+                        if (userGuessInt < secretNumber)
+                        {
+                            Console.WriteLine("your guess is too low");
+                        }
+                        else
+                        {
+                            Console.WriteLine("your guess is too high");
+                        }
+
+                        guessesGiven++;
+                        guessesLeft--;
+
+                    }
+
+                    break;
+
+                     case "3":
+                    while (guessesGiven < 4)
+                    {
+                        Console.WriteLine($"Guess the secret number. Your Guess({guessesGiven + 1})");
+                        string userGuess = Console.ReadLine();
+                        int userGuessInt = Int32.Parse(userGuess);
+
+                        if (userGuessInt == secretNumber)
+                        {
+                            Console.WriteLine("Yup! you guessed it");
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Nope! that wasn't it!. You have ({guessesLeft - 1}) guesses left");
+                        }
+
+                        if (userGuessInt < secretNumber)
+                        {
+                            Console.WriteLine("your guess is too low");
+                        }
+                        else
+                        {
+                            Console.WriteLine("your guess is too high");
+                        }
+
+                        guessesGiven++;
+                        guessesLeft--;
+
+                    }
+
+                    break;
 
             }
-
         }
     }
 }
